@@ -1,0 +1,73 @@
+Nesta atividade, vocês atuarão como desenvolvedores mobile e criarão um aplicativo simples, porém funcional, que irá listar e exibir detalhes dos personagens da aclamada série "Rick and Morty".
+
+O foco principal será o consumo de uma API pública, gerenciamento de estado e navegação entre telas, utilizando as melhores práticas do React Native.
+
+Tecnologia: React Native (com Expo)
+API: The Rick and Morty API (REST)
+Prazos:
+26/11/2025 até às 17h - Entrega dos requisitos 1 e 2 pelo GitHub
+03/12/2025 até às 17h - Entrega do requisitos 3 pelo GitHub
+10/12/2025 até às 17h - Entrega dos desafios extras pelo GitHub
+ATENÇÃO: NO FINAL DA ENTREGA DO 3º LINK DO GITHUB, VOCÊ DEVERÁ ENTREGAR UM VÍDEO CURTO DE NO MÁXIMO 2 MINUTOS DEMONSTRANDO A EXECUÇÃO DO APLICATIVO.
+Requisitos Mínimos do Projeto
+Seu aplicativo deve cumprir as seguintes funcionalidades:
+
+1. Estrutura e Configuração
+Inicie o projeto usando Expo CLI.
+
+Instale as bibliotecas necessárias para a navegação (react-navigation) e requisições HTTP (axios ou fetch nativo).
+
+2. Tela de Listagem (CharactersListScreen)
+Consumo da API: Faça uma requisição GET para o endpoint principal de personagens: https://rickandmortyapi.com/api/character.
+
+Carregamento: Exiba um componente de loading (ex: ActivityIndicator) enquanto os dados da API estão sendo buscados.
+
+Renderização Otimizada: Utilize o componente FlatList para renderizar a lista de personagens de forma eficiente.
+
+Card do Personagem: Para cada personagem, exiba:
+
+A imagem (Image).
+
+O nome (Text).
+
+O status (Alive, Dead, Unknown) e a espécie (Species).
+
+Interatividade: Cada card deve ser clicável (TouchableOpacity ou similar) e navegar para a Tela de Detalhes.
+
+3. Tela de Detalhes (CharacterDetailScreen)
+Parâmetros de Rota: Receba o id do personagem (ou a URL completa de detalhe) através dos parâmetros de navegação.
+
+Busca de Detalhes: Use o id recebido para fazer uma nova requisição GET ao endpoint específico do personagem (ex: https://rickandmortyapi.com/api/character/1).
+
+Exibição Completa: Apresente todos os detalhes relevantes do personagem de forma clara e organizada, incluindo:
+
+A imagem maior.
+
+Nome completo.
+
+Status, Espécie, Gênero.
+
+Localização de Origem (origin.name).
+
+Localização Atual (location.name).
+
+4. Navegação
+Configure um Stack Navigator (@react-navigation/stack) para gerenciar a transição entre as telas CharacterListScreen e CharacterDetailScreen.
+
+Desafios Extras (Bônus)
+Se você concluir os requisitos mínimos, desafie-se com o seguinte:
+
+Paginação Infinita: Implemente o recurso onEndReached do FlatList para carregar automaticamente a próxima página da API quando o usuário rolar até o final da lista (Dica: A API informa a URL da próxima página no objeto info.next).
+
+Busca/Filtro: Adicione uma barra de pesquisa (TextInput) que filtre a lista de personagens em tempo real, usando o parâmetro name na requisição da API (ex: .../character/?name=rick).
+
+Estilização Temática: Utilize as cores e o estilo visual da série "Rick and Morty" para deixar o app mais atraente.
+
+Documentação Útil
+Documentação da The Rick and Morty API: https://rickandmortyapi.com/documentation/
+
+Documentação React Native (FlatList): https://reactnative.dev/docs/flatlist
+
+Documentação React Navigation: https://reactnavigation.org/docs/getting-started/
+
+Mãos à obra! Lembrem-se: o segredo do sucesso está no planejamento dos seus states e effects (Hooks). Estou disponível para tirar dúvidas sobre a API e o React Native. Post a dúvida no chat da Atividade, assim você poderá compartilhar sua dúvida/resposta com seus colegas.
