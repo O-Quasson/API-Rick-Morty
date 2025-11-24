@@ -18,7 +18,7 @@ Inicie o projeto usando Expo CLI.
 Instale as bibliotecas necessárias para a navegação (react-navigation) e requisições HTTP (axios ou fetch nativo).
 
 2. Tela de Listagem (CharactersListScreen)
-Consumo da API: Faça uma requisição GET para o endpoint principal de personagens: https://rickandmortyapi.com/api/character.
+Consumo da API: Faça uma requisição GET para o endpoint principal de personagens: https://rickandmortyapi.com/api/character
 
 Carregamento: Exiba um componente de loading (ex: ActivityIndicator) enquanto os dados da API estão sendo buscados.
 

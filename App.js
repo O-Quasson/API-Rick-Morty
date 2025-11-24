@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Telainicial from './src/telas/Telainicial.js';
+import Teladetalhes from './src/telas/Teladetalhes.js';
 
 const stack = createNativeStackNavigator();
 
@@ -11,6 +12,7 @@ export default function App() {
     <NavigationContainer >
       <stack.Navigator initialRouteName='Home'>
         <stack.Screen name="Home" component={Telainicial} />
+        <stack.Screen name="Detalhes" component={Teladetalhes} />
       </stack.Navigator>
     </NavigationContainer>
   );
