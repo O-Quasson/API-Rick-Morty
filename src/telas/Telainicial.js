@@ -9,8 +9,8 @@ const Telainicial = ({navigation}) => {
     let [pag, setpag] = useState(1);
     const [personagens, setpersonagens] = useState([]);
 
-    const IrDetalhes = () => {
-        navigation.navigate("Detalhes");
+    const IrDetalhes = (id) => {
+        navigation.navigate("Detalhes", { id: id });
     }
 
     const proxPag = () => {
@@ -36,7 +36,7 @@ const Telainicial = ({navigation}) => {
                 data={personagens}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
-                    <TouchableOpacity onPress={IrDetalhes}>
+                    <TouchableOpacity onPress={() => IrDetalhes(item.id)}>
                         <View style={[{flexDirection: 'row', backgroundColor: '#89b8f5', marginBottom: windowHeight*0.02, padding: 10, width: "100%"}]}>
                             <View style={[{marginRight: 10}]}>
                                 <Image source={{ uri: item.image}} style={{width: windowWidth*0.3, height: windowWidth*0.3, resizeMode: 'contain'}}/>
@@ -71,4 +71,4 @@ const style = StyleSheet.create({
 
 })
 
-export default Telainicial;
+export { Telainicial };

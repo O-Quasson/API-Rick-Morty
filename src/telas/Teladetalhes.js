@@ -5,18 +5,20 @@ import api from "../axios/api.js";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const Teladetalhes = ((navigation) => {
+const Teladetalhes = (({route, navigation}) => {
 
-    const personagemId = useState(1);
+    const id = route.params;
     const [detalhes, setdetalhes] = useState();
 
     useEffect(() => {
-        api.get(`/${personagemId}`)
-            .then((resposta) => setdetalhes(resposta.data.results))
+        api.get(`/${id.id}`)
+            .then((resposta) => setdetalhes(resposta.data))
             .catch((erro) => console.log("Deu erro nisso aqui: " + erro))
-        });
+        }, []);
 
-    console.log(detalhes)
+    return(
+        console.log(detalhes)
+    )
 })
 
 export default Teladetalhes;
