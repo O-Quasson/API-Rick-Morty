@@ -27,10 +27,13 @@ const Teladetalhes = (({route, navigation}) => {
 
     return(
         <View style={[{justifyContent: 'center', alignItems: 'center', gap: 25, flexDirection: 'column', flex: 1}]}>
+            <Text style={[{fontSize: 30}]}>
+                Informações do personagem
+            </Text>
             <View>
                 <Image source={{ uri: detalhes.image }} style={[{width: windowWidth*0.7, height: windowWidth*0.7,borderRadius: windowWidth*0.2, resizeMode: 'contain'}]} />
             </View>
-            <View>
+            <View style={[{alignItems: 'center'}]}>
                 <Text>Nome: {detalhes.name}</Text>
                 <Text>Status: {detalhes.status}</Text>
                 <Text>Espécie: {detalhes.species}</Text>
