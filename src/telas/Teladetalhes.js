@@ -28,7 +28,7 @@ const Teladetalhes = (({route, navigation}) => {
     return(
         <View style={[{justifyContent: 'center', alignItems: 'center', gap: 25, flexDirection: 'column', flex: 1}]}>
             <View>
-                <Image source={{ uri: detalhes.image }} style={[{width: windowWidth*0.7, height: windowHeight*0.4,borderRadius: 10, resizeMode: 'contain'}]} />
+                <Image source={{ uri: detalhes.image }} style={[{width: windowWidth*0.7, height: windowWidth*0.7,borderRadius: windowWidth*0.2, resizeMode: 'contain'}]} />
             </View>
             <View>
                 <Text>Nome: {detalhes.name}</Text>

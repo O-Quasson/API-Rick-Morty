@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, FlatList, ActivityIndicator, Alert } from 'react-native';
 import api from "../axios/api.js"
 
 const windowWidth = Dimensions.get('window').width;
@@ -18,7 +18,7 @@ const Telainicial = ({navigation}) => {
         setpag(pag + 1);
     }
 
-    const pagAnt = () => {
+    const pagAnt = () => { 
         if(pag!=1){
             personagens.length=0;
             setpag(pag - 1);
@@ -41,8 +41,8 @@ const Telainicial = ({navigation}) => {
     }
 
     return (
-        <View style={[{flexDirection: 'column', flex: 1, padding: 20}]}>
-            <Text style={[{fontSize: 40}]}>Babacas</Text>
+        <View style={[{flexDirection: 'column', flex: 1, padding: 20, gap: 15}]}>
+            <Text style={[{fontSize: 40}]}>Personagens</Text>
             <FlatList
                 data={personagens}
                 keyExtractor={item => item.id}
@@ -50,7 +50,7 @@ const Telainicial = ({navigation}) => {
                     <TouchableOpacity onPress={() => IrDetalhes(item.id)}>
                         <View style={[{flexDirection: 'row', backgroundColor: '#89b8f5', marginBottom: windowHeight*0.02, padding: 10, width: "100%"}]}>
                             <View style={[{marginRight: 10}]}>
-                                <Image source={{ uri: item.image}} style={{width: windowWidth*0.3, height: windowWidth*0.3, resizeMode: 'contain'}}/>
+                                <Image source={{ uri: item.image}} style={{width: windowWidth*0.3, height: windowWidth*0.3, resizeMode: 'contain', borderRadius:windowWidth*0.1}}/>
                             </View>
                             <View style={[{flexDirection: "column", flex: 1}]}>
                                 <Text style={[{fontSize: 30}]}>{item.name}</Text>
@@ -60,6 +60,8 @@ const Telainicial = ({navigation}) => {
                     </TouchableOpacity>
                 )}
                 style={[{marginBottom: windowHeight*0.01, maxHeight: windowHeight*0.6}]}
+                onEndReached={proxPag}
+                onEndReachedThreshold={0.001}
             />
             <View style={[{flexDirection: 'row', justifyContent:"center", width: windowWidth, alignContent:"center", marginLeft: -50, gap: 100}]}>
                 <TouchableOpacity onPress={pagAnt} style={[{width: windowWidth*0.1}]}>
