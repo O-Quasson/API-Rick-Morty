@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Dimensions, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import api from "../axios/api.js"
 
 const windowWidth = Dimensions.get('window').width;
@@ -14,11 +14,13 @@ const Telainicial = ({navigation}) => {
     }
 
     const proxPag = () => {
+        personagens.length=0;
         setpag(pag + 1);
     }
 
     const pagAnt = () => {
         if(pag!=1){
+            personagens.length=0;
             setpag(pag - 1);
         }
     }
@@ -28,6 +30,15 @@ const Telainicial = ({navigation}) => {
             .then((resposta) => setpersonagens(resposta.data.results))
             .catch((erro) => console.log("Deu erro nisso aqui: " + erro))
         }, [pag]);
+
+    while(personagens.length==0){
+        return (
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <ActivityIndicator size="large" color="#000" />
+                <Text>Carregando dados, espere</Text>
+            </View>
+        );
+    }
 
     return (
         <View style={[{flexDirection: 'column', flex: 1, padding: 20}]}>
